@@ -2,8 +2,10 @@ package com.example.controller;
 
 import com.example.AppFX;
 import com.example.model.Student;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.util.Callback;
 
 public class BaseController {
     @FXML
@@ -22,14 +24,17 @@ public class BaseController {
     private AppFX appFX;
 
     private void initialize() {
-        nameList.setCellValueFactory(
-                cellData -> cellData.getClass().getName());
+
         students.getSelectionModel().selectedItemProperty().addListener(
                 (observable, oldValue, newValue) -> showStudentsInformation((Student) newValue));
     }
     public void setAppFX(AppFX appFX) {
         this.appFX = appFX;
         students.setItems(appFX.getStudentsList());
+
+        nameList.setCellValueFactory((Callback<TableColumn.CellDataFeatures<Student, String>, ObservableValue<String>>) cellDataFeatures -> cellDataFeatures.getValue().getName());
+        students.getSelectionModel().selectedItemProperty().addListener(
+                (observable, oldValue, newValue) -> showStudentsInformation((Student) newValue));
     }
 
     private void showStudentsInformation(Student currentStudent) {
