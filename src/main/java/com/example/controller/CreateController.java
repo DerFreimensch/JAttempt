@@ -11,14 +11,19 @@ public class CreateController {
     private Student student;
 
     @FXML
-    private TextField nickName;
+    private TextField secondName;
+
+    @FXML
+    private TextField name;
 
     @FXML
     private void ok() {
-        if (nickName != null && !nickName.getText().isEmpty()) {
-            student.setName(new SimpleStringProperty(nickName.getText()));
+        if (secondName != null && !secondName.getText().isEmpty() && name != null && !name.getText().isEmpty()) {
+            student.setSecondName(new SimpleStringProperty(secondName.getText()));
+            student.setName(new SimpleStringProperty(name.getText()));
             dialogStage.close();
         }
+
     }
 
     @FXML

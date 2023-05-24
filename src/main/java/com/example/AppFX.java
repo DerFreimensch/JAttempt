@@ -20,11 +20,11 @@ public class AppFX extends Application {
     private ObservableList<Object> studentsList = FXCollections.observableArrayList();
 
     public AppFX() {
-        studentsList.add(new Student("a", "a", 23, "1945"));
-        studentsList.add(new Student("b", "b", 22, "1945"));
-        studentsList.add(new Student("c", "c", 21, "1941"));
-        studentsList.add(new Student("d", "d", 19, "1941"));
-        studentsList.add(new Student("e", "e", 20, "1942"));
+        studentsList.add(new Student("Петр", "Петров", 23, "1945"));
+        studentsList.add(new Student("Кирилл", "Кириллов", 22, "1945"));
+        studentsList.add(new Student("Антон", "Антонов", 21, "1941"));
+        studentsList.add(new Student("Михаил", "Михайлов", 19, "1941"));
+        studentsList.add(new Student("Сергей", "Сергеев", 20, "1942"));
     }
 
     public static void main(String[] args) {

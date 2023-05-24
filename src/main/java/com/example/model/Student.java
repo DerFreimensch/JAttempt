@@ -42,4 +42,9 @@ public class Student {
         return group;
     }
 
+    public StringProperty getFullName(){
+        return new SimpleStringProperty(secondname.getValue() + " " + name.getValue());
+    }
+
+    public void setSecondName(SimpleStringProperty secondName) { this.secondname = secondName; }
 }

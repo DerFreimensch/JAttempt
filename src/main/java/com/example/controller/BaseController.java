@@ -23,16 +23,11 @@ public class BaseController {
     @FXML
     private AppFX appFX;
 
-    private void initialize() {
-
-        students.getSelectionModel().selectedItemProperty().addListener(
-                (observable, oldValue, newValue) -> showStudentsInformation((Student) newValue));
-    }
     public void setAppFX(AppFX appFX) {
         this.appFX = appFX;
         students.setItems(appFX.getStudentsList());
 
-        nameList.setCellValueFactory((Callback<TableColumn.CellDataFeatures<Student, String>, ObservableValue<String>>) cellDataFeatures -> cellDataFeatures.getValue().getName());
+        nameList.setCellValueFactory((Callback<TableColumn.CellDataFeatures<Student, String>, ObservableValue<String>>) cellDataFeatures -> cellDataFeatures.getValue().getFullName());
         students.getSelectionModel().selectedItemProperty().addListener(
                 (observable, oldValue, newValue) -> showStudentsInformation((Student) newValue));
     }
